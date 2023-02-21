@@ -8,6 +8,8 @@ try:
 except:
     pass
 
+run("conan create toola")
+run("grep -q -F \"toola\" \"$HOME/.conan2/profiles/default\" && echo 'Found toola in profile als tool_requires' || echo '[tool_requires]\ntoola/1.0.0' >> $HOME/.conan2/profiles/default")
 
 run("conan create matrix --version=1.0")
 with chdir("engine"):
